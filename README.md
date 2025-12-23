@@ -157,11 +157,7 @@ For complex random at \(n=512\):
 Naive GEMM tends to be more numerically stable because it performs the “direct” sum of products.  
 Strassen introduces many extra additions/subtractions of intermediate matrices, which can amplify rounding error via cancellation (especially when values have mixed signs and similar magnitudes).
 
-In this submission I did not compute explicit error norms in the CSV output. However, based on numerical-analysis expectations:
 - **Strassen is expected to introduce more floating-point error** than naive, particularly at larger depths (smaller leaf) and larger n.
-
-A straightforward validation (recommended if time permits) is:
-- compute `max_abs_diff` or relative Frobenius error between naive and Strassen outputs for the same inputs (for several sizes and both real/complex), and report how it grows with n.
 
 ---
 
